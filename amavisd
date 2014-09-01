@@ -18932,7 +18932,7 @@ sub init($$) {
     my($f, @rmfiles);
     while (defined($f = readdir(DIR))) {
       next  if $f eq '.' || $f eq '..';
-      if ($f eq 'nanny.db') {
+      if ($f =~ /\A(__db\.)?nanny.db\z/) {
         push(@rmfiles, $f)  if $predelete_nanny;
       } elsif ($f eq 'snmp.db') {
         push(@rmfiles, $f)  if $predelete_snmp;
